@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cpsla4kxyno0d"]
 
-[ext_resource type="PackedScene" uid="uid://3cgttm7fekua" path="res://drill.tscn" id="1_v3uhd"]
-[ext_resource type="Script" uid="uid://ddbc4vjofpv4g" path="res://drill.gd" id="2_ufxs0"]
-[ext_resource type="PackedScene" uid="uid://vwr8ajoufse8" path="res://Controller/Player.tscn" id="3_6we3w"]
+[ext_resource type="PackedScene" uid="uid://vwr8ajoufse8" path="res://Controller/Player.tscn" id="1_b6pey"]
+[ext_resource type="PackedScene" uid="uid://3cgttm7fekua" path="res://drill.tscn" id="2_wou3r"]
+[ext_resource type="Script" uid="uid://ddbc4vjofpv4g" path="res://drill.gd" id="3_yhl5g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qmak7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,11 +30,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002162218, -5.9604645e-08,
 use_collision = true
 size = Vector3(17.728516, 0.21777344, 20.357178)
 
-[node name="Player" parent="." unique_id=81847881 instance=ExtResource("3_6we3w")]
+[node name="Player" parent="." unique_id=81847881 instance=ExtResource("1_b6pey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.930882, 1.3073108, 0)
 
-[node name="Drill" parent="." unique_id=1499411783 instance=ExtResource("1_v3uhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12181604, 0)
-script = ExtResource("2_ufxs0")
+[node name="Drill" parent="." unique_id=1499411783 instance=ExtResource("2_wou3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2933185, 0.12181604, 0)
+script = ExtResource("3_yhl5g")
 
 [editable path="Drill"]
