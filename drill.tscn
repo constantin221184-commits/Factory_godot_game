@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1j1vateeoiy5" path="res://MyAssets/drill 1.blend" id="1_0n8n4"]
 [ext_resource type="Animation" uid="uid://n0wtca3ga0cu" path="res://animations/drill_down.res" id="2_xj5j7"]
+[ext_resource type="AudioStream" uid="uid://bs2nfwd2aodh3" path="res://sfx/drill_sfx.mp3" id="3_6i236"]
 
 [sub_resource type="Animation" id="Animation_6i236"]
 length = 0.001
@@ -113,6 +114,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x3gae"]
 _data = {
@@ -130,9 +143,11 @@ point_count = 3
 curve = SubResource("Curve_xj5j7")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6i236"]
+lifetime_randomness = 0.04
 emission_shape = 1
 emission_sphere_radius = 0.42
-gravity = Vector3(0, 0.14, 0)
+spread = 180.0
+gravity = Vector3(0, 0.785, 0)
 linear_accel_min = -2.2351742e-06
 linear_accel_max = 0.53999776
 radial_accel_min = -0.29000223
@@ -158,6 +173,12 @@ libraries/ = SubResource("AnimationLibrary_x3gae")
 [node name="Dust_Particles3D" type="GPUParticles3D" parent="." index="4" unique_id=45795216]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025220156, 0)
 emitting = false
-amount = 47
+amount = 66
 process_material = SubResource("ParticleProcessMaterial_6i236")
 draw_pass_1 = SubResource("SphereMesh_x3gae")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="5" unique_id=2069487220]
+stream = ExtResource("3_6i236")
+volume_db = -4.486
+unit_size = 11.75
+max_distance = 10.0
