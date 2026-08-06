@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bgm8slgh3fcj5"]
+
+[ext_resource type="PackedScene" uid="uid://vwr8ajoufse8" path="res://Controller/Player.tscn" id="1_611rl"]
+[ext_resource type="PackedScene" uid="uid://rwcgerrkdfpy" path="res://dungeon_level.tscn" id="3_y1yrn"]
+
+[sub_resource type="Environment" id="Environment_jyvk6"]
+background_mode = 1
+background_color = Color(0.08318836, 0.1282196, 0.1910792, 1)
+
+[node name="TestLevel" type="Node3D" unique_id=888122435]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1928495194]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+shadow_blur = 1.5
+directional_shadow_split_2 = 0.15
+directional_shadow_blend_splits = true
+directional_shadow_pancake_size = 10.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1105756316]
+environment = SubResource("Environment_jyvk6")
+
+[node name="Player" parent="." unique_id=1940463380 instance=ExtResource("1_611rl")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7.0088415, 1.8685036, 4.648054)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=420699272]
+volume_db = 5.0
+autoplay = true
+bus = &"SFX"
+
+[node name="DungeonLevel" parent="." unique_id=1760978276 instance=ExtResource("3_y1yrn")]
+transform = Transform3D(1.34, 0, 0, 0, 1.34, 0, 0, 0, 1.34, 0, 0, 0)
