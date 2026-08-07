@@ -1,22 +1,19 @@
 extends Area3D
-#
-#@onready var direction_marker_back: Marker3D = $direction_marker_back
-#@onready var direction_marker_front: Marker3D = $direction_marker_front
-#
-#@export var force_strength: float = 100
-#var direction: Vector3
-## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#direction = direction_marker_front.global_position - direction_marker_back.global_position
-	#print(direction)
-	#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _physics_process(delta: float) -> void:
-	#var push_force := direction * force_strength
-	#
-	#var bodies = get_overlapping_bodies()
-	#for body in bodies:
-		#if body is RigidBody3D:
-			#body.apply_central_force(push_force)
-			#
+
+@onready var direction_marker_back: Marker3D = $direction_marker_back
+@onready var direction_marker_front: Marker3D = $direction_marker_front
+
+@export var speed: float = 100
+var direction: Vector3
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	direction = direction_marker_front.global_position - direction_marker_back.global_position
+	print(direction)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
+	var bodies = get_overlapping_bodies()
+	for body in bodies:
+		if body is RigidBody3D:
+			body.apply_central_force(direction.normalized() * speed)
+			
