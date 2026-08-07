@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://ddbc4vjofpv4g" path="res://scenes/drill.gd" id="2_ufxs0"]
 [ext_resource type="PackedScene" uid="uid://vwr8ajoufse8" path="res://Controller/Player.tscn" id="3_6we3w"]
 [ext_resource type="PackedScene" uid="uid://4uspn5do6rua" path="res://scenes/conveyor.tscn" id="4_qmak7"]
-[ext_resource type="PackedScene" uid="uid://dmf17eon1u0tf" path="res://scenes/drop_box.tscn" id="5_8ra5a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qmak7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -34,6 +33,7 @@ size = Vector3(41.413086, 0.21777344, 41.17871)
 
 [node name="Player" parent="." unique_id=81847881 instance=ExtResource("3_6we3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.930882, 1.3073108, 0)
+collision_layer = 2
 
 [node name="Drill" parent="." unique_id=1499411783 instance=ExtResource("1_v3uhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12181604, 0)
@@ -44,38 +44,113 @@ script = ExtResource("2_ufxs0")
 [node name="spawnPosition" type="Node3D" parent="Drill" unique_id=898826397]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36810374, 1.0733637, 0)
 
-[node name="conveyor" parent="." unique_id=1671281772 instance=ExtResource("4_qmak7")]
+[node name="conveyors" type="Node3D" parent="." unique_id=1211920211]
+
+[node name="conveyor" parent="conveyors" unique_id=1671281772 instance=ExtResource("4_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27864528, 0.6975211, 0)
 
-[node name="conveyor2" parent="." unique_id=560423838 instance=ExtResource("4_qmak7")]
+[node name="conveyor2" parent="conveyors" unique_id=560423838 instance=ExtResource("4_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2786453, 0.6975211, 0)
 
-[node name="conveyor3" parent="." unique_id=1840965031 instance=ExtResource("4_qmak7")]
+[node name="conveyor3" parent="conveyors" unique_id=1840965031 instance=ExtResource("4_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2786453, 0.6975211, 0)
 
-[node name="conveyor4" parent="." unique_id=105936180 instance=ExtResource("4_qmak7")]
+[node name="conveyor4" parent="conveyors" unique_id=105936180 instance=ExtResource("4_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2719266, 0.6975211, 0)
 
-[node name="conveyor6" parent="." unique_id=1986494045 instance=ExtResource("4_qmak7")]
+[node name="conveyor6" parent="conveyors" unique_id=1986494045 instance=ExtResource("4_qmak7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.619, 0.698, 0.33122793)
 
-[node name="conveyor7" parent="." unique_id=1199553223 instance=ExtResource("4_qmak7")]
+[node name="conveyor7" parent="conveyors" unique_id=1199553223 instance=ExtResource("4_qmak7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.619, 0.698, -0.6687721)
 
-[node name="conveyor8" parent="." unique_id=994876516 instance=ExtResource("4_qmak7")]
+[node name="conveyor8" parent="conveyors" unique_id=994876516 instance=ExtResource("4_qmak7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.619, 0.698, -1.6687721)
 
-[node name="drop_box" parent="." unique_id=1455139680 instance=ExtResource("5_8ra5a")]
-transform = Transform3D(2.945, 0, 0, 0, 2.945, 0, 0, 0, 2.945, 4.7166643, 0.21520627, -3.8592322)
+[node name="conveyor5" parent="conveyors" unique_id=1353755985 instance=ExtResource("4_qmak7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2786455, 0.6975211, -3)
+
+[node name="conveyor9" parent="conveyors" unique_id=1915042573 instance=ExtResource("4_qmak7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2786455, 0.6975211, -3)
+
+[node name="conveyor10" parent="conveyors" unique_id=1077300238 instance=ExtResource("4_qmak7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.271927, 0.6975211, -3)
+
+[node name="conveyor11" parent="conveyors" unique_id=1608511161 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, -3.3532298)
+
+[node name="conveyor12" parent="conveyors" unique_id=251720199 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, -2.3532298)
+
+[node name="conveyor14" parent="conveyors" unique_id=954117814 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, -1.3532298)
+
+[node name="conveyor15" parent="conveyors" unique_id=1400856136 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, -0.35322976)
+
+[node name="conveyor16" parent="conveyors" unique_id=379358730 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 0.64677024)
+
+[node name="conveyor17" parent="conveyors" unique_id=1337975359 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 1.6467702)
+
+[node name="conveyor18" parent="conveyors" unique_id=1351279886 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 2.6467702)
+
+[node name="conveyor19" parent="conveyors" unique_id=476434902 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 3.6467702)
+
+[node name="conveyor20" parent="conveyors" unique_id=1932457317 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 4.6467705)
+
+[node name="conveyor21" parent="conveyors" unique_id=708161800 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 5.6467705)
+
+[node name="conveyor22" parent="conveyors" unique_id=1117686055 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 6.6467705)
+
+[node name="conveyor23" parent="conveyors" unique_id=2058566280 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 7.6467705)
+
+[node name="conveyor24" parent="conveyors" unique_id=1507215091 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 8.6467705)
+
+[node name="conveyor25" parent="conveyors" unique_id=1017283107 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 9.6467705)
+
+[node name="conveyor26" parent="conveyors" unique_id=601032522 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 10.6467705)
+
+[node name="conveyor27" parent="conveyors" unique_id=1206792506 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 11.6467705)
+
+[node name="conveyor28" parent="conveyors" unique_id=999400714 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 12.6467705)
+
+[node name="conveyor29" parent="conveyors" unique_id=1437737254 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 13.6467705)
+
+[node name="conveyor30" parent="conveyors" unique_id=1941157505 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 14.6467705)
+
+[node name="conveyor31" parent="conveyors" unique_id=2065800997 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 15.6467705)
+
+[node name="conveyor32" parent="conveyors" unique_id=471320565 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 16.64677)
+
+[node name="conveyor33" parent="conveyors" unique_id=1185729213 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 17.64677)
+
+[node name="conveyor34" parent="conveyors" unique_id=1401667573 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 18.64677)
+
+[node name="conveyor35" parent="conveyors" unique_id=1959017624 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 19.64677)
+
+[node name="conveyor36" parent="conveyors" unique_id=1641296689 instance=ExtResource("4_qmak7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5863056, 0.6975211, 20.64677)
 
 [connection signal="timeout" from="Drill/Timer" to="Drill" method="_on_timer_timeout"]
 
 [editable path="Drill"]
-[editable path="conveyor"]
-[editable path="conveyor2"]
-[editable path="conveyor3"]
-[editable path="conveyor4"]
-[editable path="conveyor6"]
-[editable path="conveyor7"]
-[editable path="conveyor8"]
-[editable path="drop_box"]
