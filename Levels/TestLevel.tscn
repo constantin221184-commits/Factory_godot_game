@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgm8slgh3fcj5"]
 
 [ext_resource type="PackedScene" uid="uid://vwr8ajoufse8" path="res://Controller/Player.tscn" id="1_611rl"]
-[ext_resource type="PackedScene" uid="uid://rwcgerrkdfpy" path="res://dungeon_level.tscn" id="3_y1yrn"]
+[ext_resource type="PackedScene" uid="uid://rwcgerrkdfpy" path="res://scenes/dungeon_level.tscn" id="3_y1yrn"]
 
 [sub_resource type="Environment" id="Environment_jyvk6"]
 background_mode = 1

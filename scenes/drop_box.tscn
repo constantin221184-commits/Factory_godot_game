@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dmf17eon1u0tf"]
+
+[ext_resource type="Script" uid="uid://83rhb8fmlj6" path="res://scenes/drop_area.gd" id="1_lhw22"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m577p"]
+size = Vector3(1, 0.6032715, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ra5a"]
+albedo_color = Color(0.42965955, 0.69991785, 0.9740451, 1)
+
+[node name="drop_box" type="Node3D" unique_id=1508993004]
+
+[node name="drop_area" type="Area3D" parent="." unique_id=1188761611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11595243, 0)
+script = ExtResource("1_lhw22")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="drop_area" unique_id=1589376458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2064209, 0)
+shape = SubResource("BoxShape3D_m577p")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1467707368]
+material_override = SubResource("StandardMaterial3D_8ra5a")
+use_collision = true
+size = Vector3(1, 0.14550781, 1)
+
+[connection signal="body_entered" from="drop_area" to="drop_area" method="_on_body_entered"]
