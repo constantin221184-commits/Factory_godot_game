@@ -9,7 +9,7 @@ extends Node3D
 var isExtended: bool = false
 
 
-@export var raw_iron = preload("res://scenes/raw_iron.tscn") 
+@export var raw_iron = preload("res://scenes/raw_iron.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

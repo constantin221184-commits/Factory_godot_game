@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://83rhb8fmlj6" path="res://scenes/drop_area.gd" id="1_lhw22"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_m577p"]
-size = Vector3(1, 0.6032715, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tfsc7"]
+size = Vector3(1, 0.60253906, 2.4562683)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ra5a"]
 albedo_color = Color(0.42965955, 0.69991785, 0.9740451, 1)
@@ -15,12 +15,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11595243, 0)
 script = ExtResource("1_lhw22")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="drop_area" unique_id=1589376458]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2064209, 0)
-shape = SubResource("BoxShape3D_m577p")
+transform = Transform3D(3.48, 0, 0, 0, 3.48, 0, 0, 0, 3.48, 0, 0.8980029, -0.12823792)
+shape = SubResource("BoxShape3D_tfsc7")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1467707368]
 material_override = SubResource("StandardMaterial3D_8ra5a")
 use_collision = true
-size = Vector3(1, 0.14550781, 1)
+size = Vector3(3.48, 0.145, 8.96)
 
 [connection signal="body_entered" from="drop_area" to="drop_area" method="_on_body_entered"]

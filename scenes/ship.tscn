@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://kocp4a0jttqk"]
+
+[ext_resource type="Script" uid="uid://ywk6wx3qbr8u" path="res://ship.gd" id="1_4tobq"]
+[ext_resource type="PackedScene" uid="uid://dqcx55tn3pqen" path="res://MyAssets/ship_proto.blend" id="2_tfsc7"]
+
+[sub_resource type="Animation" id="Animation_7j21i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ship_proto:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -5.112, 31.329)]
+}
+
+[sub_resource type="Animation" id="Animation_4tobq"]
+resource_name = "despawn"
+length = 5.0666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ship_proto:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.15, 5.01),
+"transitions": PackedFloat32Array(1.624505, 0.59460354, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -17.129), Vector3(0, -5.067645, -39.914127)]
+}
+
+[sub_resource type="Animation" id="Animation_3m36u"]
+resource_name = "spawn"
+length = 4.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ship_proto:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.91, 4.3),
+"transitions": PackedFloat32Array(0.6155723, 1, 1),
+"update": 0,
+"values": [Vector3(0, -5.112, 31.329), Vector3(0, 0, 12.067), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8qiel"]
+_data = {
+&"RESET": SubResource("Animation_7j21i"),
+&"despawn": SubResource("Animation_4tobq"),
+&"spawn": SubResource("Animation_3m36u")
+}
+
+[node name="ship" type="Node3D" unique_id=936432698]
+script = ExtResource("1_4tobq")
+
+[node name="ship_proto" parent="." unique_id=1478285864 instance=ExtResource("2_tfsc7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.112, 31.329)
+
+[node name="Timer" type="Timer" parent="." unique_id=1089544677]
+wait_time = 10.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1519804910]
+libraries/ = SubResource("AnimationLibrary_8qiel")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

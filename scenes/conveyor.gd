@@ -18,9 +18,9 @@ func _physics_process(delta: float) -> void:
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body is RigidBody3D:
-			body.axis_lock_angular_x = true
-			body.axis_lock_angular_y = true
-			body.axis_lock_angular_z = true
+			
+			#body.axis_lock_angular_y = true
+			#body.axis_lock_angular_z = true
 			
 			var to_body = body.global_position - global_position
 			var lateral_offset = to_body.dot(right_axis)
