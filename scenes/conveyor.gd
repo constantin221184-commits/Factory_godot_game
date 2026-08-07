@@ -15,5 +15,5 @@ func _physics_process(delta: float) -> void:
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body is RigidBody3D:
-			body.apply_central_force(direction.normalized() * speed)
-			
+			body.rotation = Vector3(0, 0, 0)
+			body.linear_velocity = direction * speed 
