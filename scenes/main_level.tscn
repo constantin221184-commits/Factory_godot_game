@@ -46,34 +46,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36810374, 1.0733637, 0)
 
 [node name="conveyor" parent="." unique_id=1671281772 instance=ExtResource("4_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27864528, 0.6975211, 0)
-speed = 100.0
 
 [node name="conveyor2" parent="." unique_id=560423838 instance=ExtResource("4_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2786453, 0.6975211, 0)
-speed = 100.0
 
 [node name="conveyor3" parent="." unique_id=1840965031 instance=ExtResource("4_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2786453, 0.6975211, 0)
-speed = 100.0
 
 [node name="conveyor4" parent="." unique_id=105936180 instance=ExtResource("4_qmak7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2719266, 0.6975211, 0)
-speed = 100.0
 
 [node name="conveyor6" parent="." unique_id=1986494045 instance=ExtResource("4_qmak7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.619, 0.698, 0.33122793)
-speed = 100.0
 
 [node name="conveyor7" parent="." unique_id=1199553223 instance=ExtResource("4_qmak7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.619, 0.698, -0.6687721)
-speed = 100.0
 
 [node name="conveyor8" parent="." unique_id=994876516 instance=ExtResource("4_qmak7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.619, 0.698, -1.6687721)
-speed = 100.0
 
 [node name="drop_box" parent="." unique_id=1455139680 instance=ExtResource("5_8ra5a")]
-transform = Transform3D(2.945, 0, 0, 0, 2.945, 0, 0, 0, 2.945, 7.7166643, 0.21520627, 1.140768)
+transform = Transform3D(2.945, 0, 0, 0, 2.945, 0, 0, 0, 2.945, 4.7166643, 0.21520627, -3.8592322)
 
 [connection signal="timeout" from="Drill/Timer" to="Drill" method="_on_timer_timeout"]
 
