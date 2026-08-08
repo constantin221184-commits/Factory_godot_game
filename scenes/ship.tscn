@@ -3,6 +3,38 @@
 [ext_resource type="Script" uid="uid://ywk6wx3qbr8u" path="res://ship.gd" id="1_4tobq"]
 [ext_resource type="PackedScene" uid="uid://dqcx55tn3pqen" path="res://MyAssets/ship_proto.blend" id="2_tfsc7"]
 
+[sub_resource type="GDScript" id="GDScript_iskwt"]
+script/source = "extends Timer
+
+@onready var animation_player: AnimationPlayer = $\"../AnimationPlayer\"
+@onready var ship: Node3D = $\"..\"
+
+@onready var label: Label = $\"../Label\"
+@export var value : int = 10
+var saved_value := 10
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	label.text = str(value)
+	saved_value = value
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+
+func _on_timeout() -> void:
+	if value != 0:
+		value -= 1
+		label.text = str(value)
+	else:
+		print(\"Spawn Ship!\")
+		ship.spawnShip()
+		value = saved_value +1 
+"
+
 [sub_resource type="Animation" id="Animation_7j21i"]
 length = 0.001
 tracks/0/type = "value"
@@ -64,10 +96,20 @@ script = ExtResource("1_4tobq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.112, 31.329)
 
 [node name="Timer" type="Timer" parent="." unique_id=1089544677]
-wait_time = 10.0
 autostart = true
+script = SubResource("GDScript_iskwt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1519804910]
 libraries/ = SubResource("AnimationLibrary_8qiel")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Label" type="Label" parent="." unique_id=497984369]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 52
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
