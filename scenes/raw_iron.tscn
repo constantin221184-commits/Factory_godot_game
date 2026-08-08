@@ -10,6 +10,7 @@ albedo_color = Color(0.6723232, 0.3105394, 0.25007033, 1)
 size = Vector3(0.28320313, 0.29516602, 0.54003906)
 
 [node name="rawIron" type="RigidBody3D" unique_id=220533633]
+collision_layer = 2
 collision_mask = 7
 mass = 4.67
 physics_material_override = SubResource("PhysicsMaterial_kqxj7")

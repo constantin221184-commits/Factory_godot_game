@@ -170,7 +170,7 @@ height = 0.2
 script = ExtResource("2_nx8ti")
 
 [node name="Icosphere" parent="." index="0" unique_id=960616769]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69154394, 0.36710906, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=47366656]
 libraries/ = SubResource("AnimationLibrary_x3gae")
