@@ -181,6 +181,17 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 44
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="delivered_items_system" unique_id=384422875]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -102.0
+offset_right = -62.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 44
+text = "/"
+
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
 [connection signal="timeout" from="Timer" to="delivered_items_system" method="_on_timer_timeout"]
 

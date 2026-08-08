@@ -25,5 +25,6 @@ func _physics_process(delta: float) -> void:
 			var to_body = body.global_position - global_position
 			var lateral_offset = to_body.dot(right_axis)
 			
-			var correction = -right_axis * lateral_offset * centering_strength
+			var correction = -right_axis * lateral_offset * centering_strength * 2
 			body.linear_velocity = direction.normalized() * speed + correction
+			

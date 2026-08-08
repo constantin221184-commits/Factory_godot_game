@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3cgttm7fekua"]
 
 [ext_resource type="PackedScene" uid="uid://d1j1vateeoiy5" path="res://MyAssets/drill 1.blend" id="1_0n8n4"]
+[ext_resource type="Script" uid="uid://ddbc4vjofpv4g" path="res://scenes/drill.gd" id="2_nx8ti"]
 [ext_resource type="Animation" uid="uid://n0wtca3ga0cu" path="res://animations/drill_down.res" id="2_xj5j7"]
 [ext_resource type="AudioStream" uid="uid://bs2nfwd2aodh3" path="res://sfx/drill_sfx.mp3" id="3_6i236"]
 
@@ -166,6 +167,7 @@ radius = 0.1
 height = 0.2
 
 [node name="Drill" unique_id=1499411783 instance=ExtResource("1_0n8n4")]
+script = ExtResource("2_nx8ti")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=47366656]
 libraries/ = SubResource("AnimationLibrary_x3gae")
@@ -182,3 +184,10 @@ stream = ExtResource("3_6i236")
 volume_db = -4.486
 unit_size = 11.75
 max_distance = 10.0
+
+[node name="Timer" type="Timer" parent="." index="6" unique_id=746377544]
+
+[node name="spawnPosition" type="Node3D" parent="." index="7" unique_id=891810745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36810374, 1.0733637, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
