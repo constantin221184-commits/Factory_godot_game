@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://kocp4a0jttqk"]
 
-[ext_resource type="Script" uid="uid://ywk6wx3qbr8u" path="res://ship.gd" id="1_4tobq"]
+[ext_resource type="Script" uid="uid://ywk6wx3qbr8u" path="res://scenes/ship.gd" id="1_4tobq"]
 [ext_resource type="PackedScene" uid="uid://dqcx55tn3pqen" path="res://MyAssets/ship_proto.blend" id="2_tfsc7"]
+[ext_resource type="PackedScene" uid="uid://dmf17eon1u0tf" path="res://scenes/drop_box.tscn" id="3_4tobq"]
+[ext_resource type="Script" uid="uid://bf5tnk8rmy8oo" path="res://scenes/delivered_items_system.gd" id="4_tfsc7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ra5a"]
+albedo_color = Color(0.42965955, 0.69991785, 0.9740451, 1)
 
 [sub_resource type="GDScript" id="GDScript_iskwt"]
 script/source = "extends Timer
@@ -12,6 +17,8 @@ script/source = "extends Timer
 @onready var label: Label = $\"../Label\"
 @export var value : int = 10
 var saved_value := 10
+
+var toggle_spawned := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,9 +37,15 @@ func _on_timeout() -> void:
 		value -= 1
 		label.text = str(value)
 	else:
-		print(\"Spawn Ship!\")
-		ship.spawnShip()
 		value = saved_value +1 
+		toggle_spawned = !toggle_spawned
+		if toggle_spawned:
+			ship.spawnShip()
+			print(\"spawn ship!\")
+		else:
+			ship.de_spawnShip()
+			print(\"despawn ship!\")
+	
 "
 
 [sub_resource type="Animation" id="Animation_7j21i"]
@@ -95,6 +108,37 @@ script = ExtResource("1_4tobq")
 [node name="ship_proto" parent="." unique_id=1478285864 instance=ExtResource("2_tfsc7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.112, 31.329)
 
+[node name="drop_box" parent="ship_proto" unique_id=1508993004 instance=ExtResource("3_4tobq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.562973)
+
+[node name="CSGBox3D" parent="ship_proto/drop_box" index="1" unique_id=1467707368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0420017)
+size = Vector3(3.48, 0.145, 6.875996)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="ship_proto/drop_box" unique_id=1369996134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5883228, 0.47028303, -1.2165012)
+material_override = SubResource("StandardMaterial3D_8ra5a")
+use_collision = true
+size = Vector3(0.3033545, 1.0855664, 6.526997)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="ship_proto/drop_box" unique_id=376077117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05356562, 0.47028303, 1.878294)
+material_override = SubResource("StandardMaterial3D_8ra5a")
+use_collision = true
+size = Vector3(3.3728685, 1.0855664, 0.20948243)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="ship_proto/drop_box" unique_id=1312423687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05356562, 0.47028303, -4.504263)
+material_override = SubResource("StandardMaterial3D_8ra5a")
+use_collision = true
+size = Vector3(3.3728685, 1.0855664, 0.20948243)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="ship_proto/drop_box" unique_id=1379261855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5913278, 0.47028303, -1.3510838)
+material_override = SubResource("StandardMaterial3D_8ra5a")
+use_collision = true
+size = Vector3(0.3033545, 1.0855664, 6.257832)
+
 [node name="Timer" type="Timer" parent="." unique_id=1089544677]
 autostart = true
 script = SubResource("GDScript_iskwt")
@@ -112,4 +156,32 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 52
 
+[node name="delivered_items_system" type="Node3D" parent="." unique_id=405999570]
+script = ExtResource("4_tfsc7")
+
+[node name="max_items" type="Label" parent="delivered_items_system" unique_id=943644306]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 44
+text = "	"
+
+[node name="current_items" type="Label" parent="delivered_items_system" unique_id=738409600]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -179.0
+offset_top = -1.0
+offset_right = -139.0
+offset_bottom = 62.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 44
+metadata/_edit_use_anchors_ = true
+
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
+[connection signal="timeout" from="Timer" to="delivered_items_system" method="_on_timer_timeout"]
+
+[editable path="ship_proto/drop_box"]

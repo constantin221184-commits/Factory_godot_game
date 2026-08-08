@@ -45,6 +45,33 @@ script = ExtResource("2_ufxs0")
 [node name="spawnPosition" type="Node3D" parent="Drill" unique_id=898826397]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36810374, 1.0733637, 0)
 
+[node name="Drill2" parent="." unique_id=187320611 instance=ExtResource("1_v3uhd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0.12181604, 0.6484606)
+script = ExtResource("2_ufxs0")
+
+[node name="Timer" type="Timer" parent="Drill2" unique_id=2097552433]
+
+[node name="spawnPosition" type="Node3D" parent="Drill2" unique_id=1179325138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36810374, 1.0733637, 0)
+
+[node name="Drill3" parent="." unique_id=367741835 instance=ExtResource("1_v3uhd")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1, 0.12181604, -0.63320637)
+script = ExtResource("2_ufxs0")
+
+[node name="Timer" type="Timer" parent="Drill3" unique_id=984190815]
+
+[node name="spawnPosition" type="Node3D" parent="Drill3" unique_id=1406378616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36810374, 1.0733637, 0)
+
+[node name="Drill4" parent="." unique_id=1465464035 instance=ExtResource("1_v3uhd")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 3, 0.12181604, -0.63320637)
+script = ExtResource("2_ufxs0")
+
+[node name="Timer" type="Timer" parent="Drill4" unique_id=1440748596]
+
+[node name="spawnPosition" type="Node3D" parent="Drill4" unique_id=171302624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36810374, 1.0733637, 0)
+
 [node name="conveyors" type="Node3D" parent="." unique_id=1211920211]
 
 [node name="conveyor" parent="conveyors" unique_id=1671281772 instance=ExtResource("4_qmak7")]
@@ -150,5 +177,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0.5, 0.8660254, -2.1855694e-08, 0.
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.59482, 0, 23.8074)
 
 [connection signal="timeout" from="Drill/Timer" to="Drill" method="_on_timer_timeout"]
+[connection signal="timeout" from="Drill2/Timer" to="Drill2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Drill3/Timer" to="Drill3" method="_on_timer_timeout"]
+[connection signal="timeout" from="Drill4/Timer" to="Drill4" method="_on_timer_timeout"]
 
 [editable path="Drill"]
+[editable path="Drill2"]
+[editable path="Drill3"]
+[editable path="Drill4"]
