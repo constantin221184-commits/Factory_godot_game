@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cpsla4kxyno0d"]
 
-[ext_resource type="PackedScene" uid="uid://3cgttm7fekua" path="res://scenes/drill.tscn" id="1_v3uhd"]
+[ext_resource type="PackedScene" uid="uid://3cgttm7fekua" path="res://Objects/drill.tscn" id="1_v3uhd"]
 [ext_resource type="PackedScene" uid="uid://vwr8ajoufse8" path="res://Controller/Player.tscn" id="3_6we3w"]
 [ext_resource type="PackedScene" uid="uid://4uspn5do6rua" path="res://scenes/conveyor.tscn" id="4_qmak7"]
 [ext_resource type="PackedScene" uid="uid://kocp4a0jttqk" path="res://scenes/ship.tscn" id="5_8ra5a"]

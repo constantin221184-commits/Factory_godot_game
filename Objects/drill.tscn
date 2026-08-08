@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3cgttm7fekua"]
 
 [ext_resource type="PackedScene" uid="uid://d1j1vateeoiy5" path="res://MyAssets/drill 1.blend" id="1_0n8n4"]
-[ext_resource type="Script" uid="uid://ddbc4vjofpv4g" path="res://scenes/drill.gd" id="2_nx8ti"]
+[ext_resource type="Script" uid="uid://ddbc4vjofpv4g" path="res://Objects/drill.gd" id="2_nx8ti"]
 [ext_resource type="Animation" uid="uid://n0wtca3ga0cu" path="res://animations/drill_down.res" id="2_xj5j7"]
 [ext_resource type="AudioStream" uid="uid://bs2nfwd2aodh3" path="res://sfx/drill_sfx.mp3" id="3_6i236"]
 
