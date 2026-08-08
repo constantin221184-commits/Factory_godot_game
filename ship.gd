@@ -14,6 +14,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-#func spawnShip() -> void:
-	#animation_player.play("spawn")
+
+func _on_timer_timeout() -> void:
+	
+	if !spawned:
+		animation_player.play("spawn")
+		spawned = true
+
+	else:
+		spawned = false
+		animation_player.play("despawn")
+
+	
 	

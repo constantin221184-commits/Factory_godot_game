@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://vwr8ajoufse8" path="res://Controller/Player.tscn" id="3_6we3w"]
 [ext_resource type="PackedScene" uid="uid://4uspn5do6rua" path="res://scenes/conveyor.tscn" id="4_qmak7"]
 [ext_resource type="PackedScene" uid="uid://kocp4a0jttqk" path="res://scenes/ship.tscn" id="5_8ra5a"]
-[ext_resource type="PackedScene" uid="uid://ly6m6ahxdjqb" path="res://timesystem.tscn" id="6_bq26l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qmak7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -149,8 +148,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0.5, 0.8660254, -2.1855694e-08, 0.
 
 [node name="ship" parent="." unique_id=936432698 instance=ExtResource("5_8ra5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.59482, 0, 23.8074)
-
-[node name="Timesystem" parent="." unique_id=1555008795 instance=ExtResource("6_bq26l")]
 
 [connection signal="timeout" from="Drill/Timer" to="Drill" method="_on_timer_timeout"]
 
