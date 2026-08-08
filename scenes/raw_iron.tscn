@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c03nc0p3g6wnr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kqxj7"]
-friction = 0.51
+friction = 0.43
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m577p"]
 albedo_color = Color(0.6723232, 0.3105394, 0.25007033, 1)
@@ -11,11 +11,11 @@ size = Vector3(0.28320313, 0.29516602, 0.54003906)
 
 [node name="rawIron" type="RigidBody3D" unique_id=220533633]
 collision_mask = 7
-mass = 4.104
+mass = 3.17
 physics_material_override = SubResource("PhysicsMaterial_kqxj7")
 center_of_mass_mode = 1
-center_of_mass = Vector3(0, -0.09, 0)
-inertia = Vector3(0.59, 0.23, 0.59)
+center_of_mass = Vector3(0, -0.21, 0)
+inertia = Vector3(0.44, 0, 0.42)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=700409545]
 material_override = SubResource("StandardMaterial3D_m577p")
