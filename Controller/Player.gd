@@ -1,6 +1,14 @@
 extends CharacterBody3D
 class_name Player
 
+var grid_size = 0.5
+var ghost_block: Node3D = null
+var objects = []
+var current_object_index = 0
+
+@onready var hand_target: Marker3D = $HandTarget
+
+
 ## How fast the player moves on the ground.
 @export var base_speed := 6.0
 ## How high the player can jump in meters.
@@ -85,6 +93,15 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	frame_camera_rotation()
 	smooth_camera_zoom(delta)
+	
+	if Input.is_action_just_pressed("build"):
+		if ghost_block:
+			ghost_block.destroy()
+		else:
+			spawn_ghost_block()
+			
+	if ghost_block:
+		building(delta)
 	
 	# Add gravity.
 	if not is_on_floor():
@@ -186,3 +203,25 @@ func smooth_camera_zoom(delta: float) -> void:
 func _on_footstep_timer_timeout() -> void:
 	if is_on_floor() and get_movement_direction():
 		run_audio.play()
+
+
+func snap_to_grid(position: Vector3, grid_snap: float) -> Vector3:
+	var x = round(position.x / grid_snap) * grid_snap
+	var y = round(position.y / grid_snap) * grid_snap
+	var z = round(position.z / grid_snap) * grid_snap
+	return Vector3(x, y, z)
+
+
+func spawn_ghost_block():
+	ghost_block = objects[current_object_index].instantiate()
+	get_parent().add_child(ghost_block)
+	ghost_block.global_position = self.global_position
+	ghost_block.global_position.y -= 1.0
+
+
+func building(delta):
+	var snap_pos: Vector3 = snap_to_grid(hand_target.global_position, grid_size)
+	ghost_block.global_position = lerp(ghost_block.global_position, snap_pos, 0.1)
+	
+	
+	
